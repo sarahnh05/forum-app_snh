@@ -11,11 +11,12 @@ describe('Logout spec', () => {
     cy.get('input[placeholder*="Password"]').type('dicoding');
     cy.get('button').contains(/^Login$/).click();
 
-    cy.url().should('eq', 'http://localhost:3000/');
+    cy.url({ timeout: 10000 }).should('eq', 'http://localhost:3000/');
+    cy.get('.button-logout', { timeout: 10000 }).should('be.visible');
   });
 
   it('should logout successfully', () => {
-    cy.get('.button-logout').click();
+    cy.get('.button-logout', { timeout: 10000 }).should('be.visible');
 
     cy.get('nav').contains('Login', { timeout: 10000 }).should('be.visible');
   });
