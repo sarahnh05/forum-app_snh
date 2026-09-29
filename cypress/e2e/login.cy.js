@@ -54,14 +54,6 @@ it('should display alert when email and password are wrong', () => {
  
     cy.get('button').contains(/^Login$/).click();
 
-    cy.wait(2000);
-
-    cy.screenshot('after-login');
-
-    cy.get('body').then(($body) => {
-      cy.log($body.text());
-    });
- 
-    cy.get('.button-logout').click();
+    cy.url().should('eq', 'http://localhost:3000/');
   });
 });
