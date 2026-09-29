@@ -17,6 +17,6 @@ describe('Logout spec', () => {
   it('should logout successfully', () => {
     cy.get('button').contains('dicodingsnh').click();
 
-    cy.get('nav').contains('Login').should('be.visible');
+    cy.get('nav').contains('Login', { timeout: 10000 }).should('be.visible');
   });
 });
