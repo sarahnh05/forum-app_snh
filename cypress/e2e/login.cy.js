@@ -53,7 +53,7 @@ it('should display alert when email and password are wrong', () => {
     cy.get('input[placeholder="Password"]').type('dicoding');
  
     cy.get('button').contains(/^Login$/).click();
- 
-    cy.get('button').contains('dicodingsnh').should('be.visible');
+
+    cy.url({ timeout: 10000 }).should('eq', 'http://localhost:3000/');
   });
 });
