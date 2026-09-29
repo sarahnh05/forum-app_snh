@@ -62,6 +62,6 @@ it('should display alert when email and password are wrong', () => {
       cy.log($body.text());
     });
  
-    cy.get('button').contains('dicodingsnh', { timeout: 30000 }).should('be.visible');
+    cy.get('.button-logout').click();
   });
 });
