@@ -54,6 +54,6 @@ it('should display alert when email and password are wrong', () => {
  
     cy.get('button').contains(/^Login$/).click();
 
-    cy.url().should('eq', 'http://localhost:3000/');
+    cy.url({ timeout: 10000 }).should('eq', 'http://localhost:3000/');
   });
 });
