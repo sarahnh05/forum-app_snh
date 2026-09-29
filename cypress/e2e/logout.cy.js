@@ -12,6 +12,7 @@ describe('Logout spec', () => {
     cy.get('button').contains(/^Login$/).click();
 
     cy.url({ timeout: 10000 }).should('eq', 'http://localhost:3000/');
+    cy.screenshot('after-login');
     cy.get('.button-logout', { timeout: 10000 }).should('be.visible');
   });
 
