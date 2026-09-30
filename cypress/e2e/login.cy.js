@@ -16,7 +16,6 @@ describe('Login spec', () => {
     cy.get('input[placeholder="Email"]').should('be.visible');
     cy.get('input[placeholder="Password"]').should('be.visible');
     cy.get('button').contains(/^Login$/).should('be.visible');
- 
   });
 
   it('should display alert when username is empty', () => {
@@ -31,18 +30,18 @@ describe('Login spec', () => {
     cy.get('input[placeholder="Email"]').type('dicodingsnh@dicodingmail.com');
 
     cy.get('button').contains(/^Login$/).click();
- 
+
     cy.on('window:alert', (str) => {
       expect(str).to.equal('"password" is not allowed to be empty');
     });
   });
 
-it('should display alert when email and password are wrong', () => {
+  it('should display alert when email and password are wrong', () => {
     cy.get('input[placeholder="Email"]').type('dicodingsnh@dicodingmail.com');
     cy.get('input[placeholder="Password"]').type('wrong_password');
- 
+
     cy.get('button').contains(/^Login$/).click();
- 
+
     cy.on('window:alert', (str) => {
       expect(str).to.equal('email or password is wrong');
     });
@@ -51,7 +50,7 @@ it('should display alert when email and password are wrong', () => {
   it('should display homepage when username and password are correct', () => {
     cy.get('input[placeholder="Email"]').type('dicodingsnh@dicodingmail.com');
     cy.get('input[placeholder="Password"]').type('dicoding');
- 
+
     cy.get('button').contains(/^Login$/).click();
 
     cy.url({ timeout: 10000 }).should('eq', 'http://localhost:3000/');

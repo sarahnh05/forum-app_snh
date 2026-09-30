@@ -18,7 +18,7 @@ describe('Register spec', () => {
     cy.get('input[placeholder="Email"]').should('be.visible');
     cy.get('input[placeholder="Password"]').should('be.visible');
     cy.get('button').contains(/^Register$/).should('be.visible');
- 
+
   });
 
   it('should display alert when name is empty', () => {
@@ -33,7 +33,7 @@ describe('Register spec', () => {
     cy.get('input[placeholder="Name"]').type('Dicoding');
 
     cy.get('button').contains(/^Register$/).click();
- 
+
     cy.on('window:alert', (str) => {
       expect(str).to.equal('"email" is not allowed to be empty');
     });
@@ -44,7 +44,7 @@ describe('Register spec', () => {
     cy.get('input[placeholder="Email"]').type('dicodingsnh@dicodingmail.com');
 
     cy.get('button').contains(/^Register$/).click();
- 
+
     cy.on('window:alert', (str) => {
       expect(str).to.equal('"password" is not allowed to be empty');
     });
@@ -56,7 +56,7 @@ describe('Register spec', () => {
     cy.get('input[placeholder="Password"]').type('dicoding');
 
     cy.get('button').contains(/^Register$/).click();
- 
+
     cy.on('window:alert', (str) => {
       expect(str).to.equal('"password" is not allowed to be empty');
     });
@@ -68,7 +68,7 @@ describe('Register spec', () => {
     cy.get('input[placeholder="Password"]').type('dicoding');
 
     cy.get('button').contains(/^Register$/).click();
- 
+
     cy.get('nav').contains('Login').should('be.visible');
   });
 });
